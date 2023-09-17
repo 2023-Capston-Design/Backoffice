@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  db:
+    container_name: mongo-master
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password1234!
+      MONGO_INITDB_DATABASE: backoffice
+    ports:
+      - 27017:27017
+    networks:
+      - mongo
+    volumes:
+      - ./db:/data/db
+networks:
+  mongo:
+    driver: bridge
